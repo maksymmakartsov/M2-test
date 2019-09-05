@@ -1,0 +1,11 @@
+<div class="templates-wrap">
+	<app-search
+			(searchEvent)="onSearch()"
+	></app-search>
+	<app-templates-block
+			[draftTemplates]="draftTemplates"
+			[publishedTemplates]="filteredPublishedTemplates"
+			[length]="publishedTemplates.length"
+			(pageEvent)="onPageEvent($event)"
+	></app-templates-block>
+</div>

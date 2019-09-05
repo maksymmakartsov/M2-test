@@ -1,0 +1,16 @@
+<div class="card-wrap">
+	<div class="card__main-info">
+		<div><b>{{ template?.templateName }}</b></div>
+		<div>{{ template?.serviceName }}</div>
+		<div>{{ template?.division }}</div>
+		<div>
+			<p *ngIf="type === 'published'">
+				v{{ template?.version }}
+			</p>
+		</div>
+		<div>...</div>
+	</div>
+	<div class="card__additional-info">
+		<p>Last edited by: {{ template?.lastEditedBy }} - {{ template?.lastEdited }}</p>
+	</div>
+</div>

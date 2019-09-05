@@ -1,0 +1,25 @@
+<div class="templates-block-wrap">
+	<div class="templates-block-content">
+		<h1>Draft templates</h1>
+		<ng-container *ngFor="let template of draftTemplates">
+			<app-template-card
+					[template]="template"
+					[type]="'draft'"
+			></app-template-card>
+		</ng-container>
+		<h1>Published templates</h1>
+		<ng-container *ngFor="let template of publishedTemplates">
+			<app-template-card
+					[template]="template"
+					[type]="'published'"
+			></app-template-card>
+		</ng-container>
+		<mat-paginator [length]="length"
+		               [pageSize]="2"
+		               hidePageSize="true"
+		               showFirstLastButtons="true"
+		               (page)="changePagination($event)"
+		>
+		</mat-paginator>
+	</div>
+</div>

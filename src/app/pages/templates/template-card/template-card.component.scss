@@ -1,0 +1,19 @@
+.card-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  background-color: #fff;
+  border: 1px solid rgba(97, 110, 143, 0.08);
+  min-height: 72px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.card {
+  &__main-info {
+    display: flex;
+    justify-content: space-between;
+  }
+}

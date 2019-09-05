@@ -1,0 +1,25 @@
+<div class="search-wrap">
+	<div class="search-content">
+		<div class="search">
+			<form [formGroup]="searchForm" class="search__form">
+				<mat-form-field style="color: black" class="example-full-width">
+					<input
+							type="text"
+							placeholder="Pick one"
+							aria-label="Number"
+							matInput
+							formControlName="search"
+							[matAutocomplete]="auto"
+							(keydown.enter)="search()"
+					>
+					<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+						<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+							{{option}}
+						</mat-option>
+					</mat-autocomplete>
+				</mat-form-field>
+			</form>
+		</div>
+		<div class="create-button"></div>
+	</div>
+</div>
