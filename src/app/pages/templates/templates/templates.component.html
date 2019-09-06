@@ -3,9 +3,7 @@
 			(searchEvent)="onSearch()"
 	></app-search>
 	<app-templates-block
-			[draftTemplates]="draftTemplates"
-			[publishedTemplates]="filteredPublishedTemplates"
-			[length]="publishedTemplates.length"
-			(pageEvent)="onPageEvent($event)"
+			[draftTemplates$]="draftTemplates$"
+			[publishedTemplates$]="publishedTemplates$"
 	></app-templates-block>
 </div>

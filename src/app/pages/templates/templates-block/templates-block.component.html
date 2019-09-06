@@ -1,20 +1,20 @@
 <div class="templates-block-wrap">
 	<div class="templates-block-content">
 		<h1>Draft templates</h1>
-		<ng-container *ngFor="let template of draftTemplates">
+		<ng-container *ngFor="let template of draftTemplates$ | async">
 			<app-template-card
 					[template]="template"
 					[type]="'draft'"
 			></app-template-card>
 		</ng-container>
 		<h1>Published templates</h1>
-		<ng-container *ngFor="let template of publishedTemplates">
+		<ng-container *ngFor="let template of filteredPublishedTemplates$ | async">
 			<app-template-card
 					[template]="template"
 					[type]="'published'"
 			></app-template-card>
 		</ng-container>
-		<mat-paginator [length]="length"
+		<mat-paginator [length]="(publishedTemplates$ | async).length"
 		               [pageSize]="2"
 		               hidePageSize="true"
 		               showFirstLastButtons="true"
