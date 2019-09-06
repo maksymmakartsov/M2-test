@@ -33,4 +33,8 @@ export class TemplatesBlockComponent implements OnInit, AfterViewInit {
     );
   }
 
+  changePagination(event: PageEvent) {
+    this.filteredPublishedTemplates$ = this.templatesListService.getPublishedTemplatesForPagination(event);
+  }
+
 }
