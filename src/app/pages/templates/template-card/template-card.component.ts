@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TemplateDto } from "../../../shared/models";
+import { TemplateCardDto } from "../../../shared/models";
 
 @Component({
   selector: 'app-template-card',
@@ -7,7 +7,7 @@ import { TemplateDto } from "../../../shared/models";
   styleUrls: ['./template-card.component.scss']
 })
 export class TemplateCardComponent implements OnInit {
-  @Input() public template: TemplateDto;
+  @Input() public template: TemplateCardDto;
   @Input() public type: string;
 
   constructor() { }

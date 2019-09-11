@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { TemplateDto } from "../../../shared/models";
+import { TemplateCardDto } from "../../../shared/models";
 import { MatPaginator, PageEvent } from "@angular/material";
 import { Observable } from "rxjs";
 import { startWith, switchMap } from "rxjs/operators";
 import { TemplatesListService } from "../../../shared/services/templates-list/templates-list.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-templates-block',
@@ -11,15 +12,16 @@ import { TemplatesListService } from "../../../shared/services/templates-list/te
   styleUrls: ['./templates-block.component.scss']
 })
 export class TemplatesBlockComponent implements OnInit, AfterViewInit {
-  @Input() public draftTemplates$: Observable<TemplateDto[]>;
-  @Input() public publishedTemplates$: Observable<TemplateDto[]>;
+  @Input() public draftTemplates$: Observable<TemplateCardDto[]>;
+  @Input() public publishedTemplates$: Observable<TemplateCardDto[]>;
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
-  public filteredPublishedTemplates$: Observable<TemplateDto[]>;
+  public filteredPublishedTemplates$: Observable<TemplateCardDto[]>;
 
   constructor(
-      private readonly templatesListService: TemplatesListService
+      private readonly templatesListService: TemplatesListService,
+      private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,10 @@ export class TemplatesBlockComponent implements OnInit, AfterViewInit {
 
   changePagination(event: PageEvent) {
     this.filteredPublishedTemplates$ = this.templatesListService.getPublishedTemplatesForPagination(event);
+  }
+
+  public navigateToEditTemplate(id: number): void {
+    this.router.navigate(['constructor', `${id}`]);
   }
 
 }

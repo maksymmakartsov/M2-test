@@ -1,0 +1,8 @@
+<p>edit-template works!</p>
+<div *ngIf="templateData$ | async as templateData">
+	<div *ngIf="!!templateData.id">
+		<app-constructor
+				[template]="templateData"
+		></app-constructor>
+	</div>
+</div>
