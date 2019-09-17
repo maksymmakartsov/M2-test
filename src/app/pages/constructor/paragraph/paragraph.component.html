@@ -1,1 +1,27 @@
-<p>paragraph works!</p>
+<div class="paragraph">
+	<div class="paragraph__header">
+		<div class="breadcrumbs">
+			<div class="breadcrumbs__item">NAC Panel</div>
+		</div>
+	</div>
+	<div class="paragraph__main">
+		<div class="paragraph__main-wrapper">
+			<div class="heading">
+				<mat-form-field>
+					<input matInput placeholder="Paragraph heading">
+				</mat-form-field>
+			</div>
+			<div class="items">
+				<ng-container *ngFor="let item of paragraphData.items">
+					<app-item
+							[item]="item"
+							(click)="openItemSettings(item)"
+					></app-item>
+				</ng-container>
+			</div>
+			<div class="add-item">
+				<button mat-button color="primary">Add item</button>
+			</div>
+		</div>
+	</div>
+</div>

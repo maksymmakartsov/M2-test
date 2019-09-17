@@ -1,0 +1,31 @@
+.paragraph {
+  margin-bottom: 24px;
+
+  &__header {
+    padding: 10px 12px 10px 24px;
+    background-color: #e6edf9;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+  }
+  &__main {
+    padding-left: 26px;
+  }
+  &__main-wrapper {
+    padding: 0 24px 24px 24px;
+    background-color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+.breadcrumbs {
+  &__item {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.add-item {
+  display: flex;
+  justify-content: center;
+}

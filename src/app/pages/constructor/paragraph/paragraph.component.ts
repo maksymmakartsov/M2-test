@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ItemModel, ParagraphModel } from "../../../shared/models";
+import { ItemsSettingsService } from "../../../shared/services/items-settings/items-settings.service";
 
 @Component({
   selector: 'app-paragraph',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParagraphComponent implements OnInit {
 
-  constructor() { }
+  @Input() public paragraphData: ParagraphModel;
+
+  constructor(
+      private readonly itemsSettingsService: ItemsSettingsService
+  ) { }
 
   ngOnInit() {
+  }
+
+  public openItemSettings(item: ItemModel): void {
+    this.itemsSettingsService.showItemSettings(item);
   }
 
 }

@@ -1,12 +1,12 @@
 import { TemplateCardDto } from "../shared/models";
 
 export const DRAFT_TEMPLATES_MOCK: TemplateCardDto[] = [
-    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', null, null, '2019.07.15', 'Ali Connors'),
-    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', null, null, '2019.07.15', 'Ali Connors'),
-    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', null, null, '2019.07.15', 'Ali Connors'),
-    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', null, null, '2019.07.15', 'Ali Connors'),
-    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', null, null, '2019.07.15', 'Ali Connors'),
-    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', null, null, '2019.07.15', 'Ali Connors')
+    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', 1, null, '2019.07.15', 'Ali Connors'),
+    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', 2, null, '2019.07.15', 'Ali Connors'),
+    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', 3, null, '2019.07.15', 'Ali Connors'),
+    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', 4, null, '2019.07.15', 'Ali Connors'),
+    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', 5, null, '2019.07.15', 'Ali Connors'),
+    new TemplateCardDto('Annual Fire Inspection', 'Annual Fire Inspection', 'Fire', 6, null, '2019.07.15', 'Ali Connors')
 ];
 
 export const PUBLISHED_TEMPLATES_MOCK: TemplateCardDto[] = [

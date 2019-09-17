@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SectionModel } from "../../../shared/models";
 
 @Component({
   selector: 'app-section',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionComponent implements OnInit {
 
+  @Input() public sectionData: SectionModel;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.sectionData);
   }
 
 }
