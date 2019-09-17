@@ -1,0 +1,19 @@
+.section {
+  border: 2px solid #e6edf9;
+  margin-bottom: 32px;
+
+  &__title {
+    padding: 24px 18px;
+
+    &__label {
+      font-size: 12px;
+      line-height: 16px;
+      color: #616e8f;
+    }
+    &__text {
+      font-size: 20px;
+      color: #192038;
+      line-height: 24px;
+    }
+  }
+}

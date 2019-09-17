@@ -1,0 +1,43 @@
+<mat-drawer-container class="example-container" hasBackdrop="false">
+  <mat-drawer
+      #drawer
+      mode="over"
+      position="end"
+      (closed)="itemsSettingsService.onSidebarClosed()"
+  >
+    I'm a drawer
+    {{ item$ | async | json }}
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="template-constructor-wrap">
+      <div class="template-constructor">
+        <div
+            *ngIf="template"
+            class="template-constructor__information">
+          <mat-form-field>
+            <mat-select placeholder="Template service">
+              <mat-option value="option">{{template.service}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Template title">
+          </mat-form-field>
+          <div class="template-constructor__description">
+            <p class="template-constructor__description__label">Description:</p>
+            <p class="template-constructor__description__text">{{template.description}}</p>
+          </div>
+        </div>
+        <div class="template-constructor__content">
+          <ng-container *ngFor="let section of template.sections">
+            <app-section
+                [sectionData]="section"
+            ></app-section>
+          </ng-container>
+        </div>
+        <div class="template-constructor__add-section">
+          <button mat-flat-button color="primary">Add new section</button>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

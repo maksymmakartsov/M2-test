@@ -5,6 +5,7 @@
 			<app-template-card
 					[template]="template"
 					[type]="'draft'"
+					(click)="navigateToEditTemplate(template.id)"
 			></app-template-card>
 		</ng-container>
 		<h1>Published templates</h1>

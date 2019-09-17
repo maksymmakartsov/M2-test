@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: TemplatesComponent
+  },
+  {
+    path: 'constructor',
+    loadChildren: () => import('./pages/constructor/constructor.module').then(mod => mod.ConstructorModule)
   }
 ];
 

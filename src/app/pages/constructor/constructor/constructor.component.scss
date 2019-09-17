@@ -1,0 +1,43 @@
+.template-constructor-wrap {
+  padding-top: 48px;
+}
+
+.template-constructor {
+  max-width: 960px;
+  margin: 0 auto;
+
+  &__information {
+    padding: 24px 72px 24px 18px;
+    border: 2px solid #e6edf9;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__description {
+    &__label {
+      font-size: 12px;
+      color: #616e8f;
+    }
+    &__text {
+      font-size: 14px;
+    }
+  }
+  &__add-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 73px 0;
+    border: 2px dashed #e6edf9;
+  }
+}
+
+mat-drawer {
+  position: fixed;
+  width: 304px;
+  max-height: 100vh;
+  padding-top: 48px;
+}
+
+.mat-drawer:not(.mat-drawer-side) {
+  box-shadow: none;
+}

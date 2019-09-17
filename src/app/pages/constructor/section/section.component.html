@@ -1,0 +1,13 @@
+<div class="section">
+	<div class="section__title">
+		<p class="section__title__label">Section title:</p>
+		<p class="section__title__text">{{sectionData.name}}</p>
+	</div>
+	<div class="section__paragraphs-container">
+		<ng-container *ngFor="let paragraph of sectionData.paragraphs">
+			<app-paragraph
+					[paragraphData]="paragraph"
+			></app-paragraph>
+		</ng-container>
+	</div>
+</div>

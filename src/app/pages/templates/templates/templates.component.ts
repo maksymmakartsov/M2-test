@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TemplateDto } from "../../../shared/models";
+import { TemplateCardDto } from "../../../shared/models";
 import { TemplatesListService } from "../../../shared/services/templates-list/templates-list.service";
 import { FILTERED_DRAFT_TEMPLATES_MOCK, FILTERED_PUBLISHED_TEMPLATES_MOCK } from "../../../mock";
 import { Observable, of } from "rxjs";
@@ -11,8 +11,8 @@ import { Observable, of } from "rxjs";
 })
 export class TemplatesComponent implements OnInit {
 
-  public draftTemplates$: Observable<TemplateDto[]>;
-  public publishedTemplates$: Observable<TemplateDto[]>;
+  public draftTemplates$: Observable<TemplateCardDto[]>;
+  public publishedTemplates$: Observable<TemplateCardDto[]>;
 
   constructor(
       private readonly templatesListService: TemplatesListService
