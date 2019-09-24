@@ -12,11 +12,12 @@ import { ConstructorService } from "../../shared/services/constructor/constructo
 import { MatButtonModule, MatSelectModule, MatSidenavModule } from '@angular/material';
 import { ItemComponent } from './item/item.component';
 import { ItemsSettingsService } from "../../shared/services/items-settings/items-settings.service";
+import { PreviewMenuComponent } from './preview-menu/preview-menu.component';
 
 
 
 @NgModule({
-  declarations: [ConstructorComponent, SectionComponent, ParagraphComponent, CreateTemplateComponent, EditTemplateComponent, ItemComponent],
+  declarations: [ConstructorComponent, SectionComponent, ParagraphComponent, CreateTemplateComponent, EditTemplateComponent, ItemComponent, PreviewMenuComponent],
     imports: [
         CommonModule,
         ConstructorRoutingModule,
