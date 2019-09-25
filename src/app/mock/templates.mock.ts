@@ -215,7 +215,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                             new ItemType('Single-selection list', 'select'),
                             'question'
                         )
-                    ]
+                    ],
+                    'NAC Panel'
                 ),
                 new ParagraphModel(
                     4,
@@ -253,7 +254,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                                 new ItemType('Single-selection list', 'select'),
                                 'question'
                             )
-                        ]
+                        ],
+                        'NAC Panel'
                     ),
                     [
                         new ItemModel(
@@ -284,7 +286,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                             new ItemType('Single-selection list', 'select'),
                             'question'
                         )
-                    ]
+                    ],
+                    'NACP PRIMARY POWER SUPPLY'
                 ),
                 new ParagraphModel(
                     2,
@@ -319,7 +322,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                             new ItemType('Single-selection list', 'select'),
                             'question'
                         )
-                    ]
+                    ],
+                    'NAC Panel'
                 ),
                 new ParagraphModel(
                     6,
@@ -360,7 +364,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                                     new ItemType('Single-selection list', 'select'),
                                     'question'
                                 )
-                            ]
+                            ],
+                            'NAC Panel'
                         ),
                         [
                             new ItemModel(
@@ -391,7 +396,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                                 new ItemType('Single-selection list', 'select'),
                                 'question'
                             )
-                        ]
+                        ],
+                        'NACP SECONDARY POWER SUPPLY INFORMATION'
                     ),
                     [
                         new ItemModel(
@@ -422,7 +428,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                             new ItemType('Single-selection list', 'select'),
                             'question'
                         )
-                    ]
+                    ],
+                    'NAC Panel'
                 ),
                 new ParagraphModel(
                     5,
@@ -460,7 +467,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                                 new ItemType('Single-selection list', 'select'),
                                 'question'
                             )
-                        ]
+                        ],
+                        'NAC Panel'
                     ),
                     [
                         new ItemModel(
@@ -491,7 +499,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                             new ItemType('Single-selection list', 'select'),
                             'question'
                         )
-                    ]
+                    ],
+                    'NACP SECONDARY POWER SUPPLY INFORMATION'
                 ),
                 new ParagraphModel(
                     3,
@@ -529,7 +538,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                                 new ItemType('Single-selection list', 'select'),
                                 'question'
                             )
-                        ]
+                        ],
+                        'NAC Panel'
                     ),
                     [
                         new ItemModel(
@@ -560,7 +570,8 @@ export const TEMPLATE_MOCK = new TemplateDto(
                             new ItemType('Single-selection list', 'select'),
                             'question'
                         )
-                    ]
+                    ],
+                    'NACP SECONDARY POWER SUPPLY INFORMATION'
                 )
             ]
         )

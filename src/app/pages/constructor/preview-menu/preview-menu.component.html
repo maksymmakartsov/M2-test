@@ -1,0 +1,19 @@
+<div class="preview">
+	<div class="preview__template">
+		<div class="preview__template__title">
+			<p>{{ template?.name }}</p>
+		</div>
+		<div
+				*ngFor="let section of template?.sections"
+				class="preview__section"
+		>
+			<p class="preview__section__title">{{ section?.name }}</p>
+			<div
+					*ngFor="let paragraph of section?.paragraphs"
+					class="preview__paragraph {{ paragraph?.parent ? 'padding-left-15': '' }} {{ paragraph?.parent && paragraph.parent.parent ? 'padding-left-25': '' }}"
+			>
+				<a routerLink="./" fragment="{{ paragraph?.id }}" class="preview__paragraph__title">{{ paragraph?.heading }}</a>
+			</div>
+		</div>
+	</div>
+</div>
