@@ -23,7 +23,8 @@ export class ParagraphModel {
         public id: number,
         public position: number,
         public parent?: ParagraphModel,
-        public items?: ItemModel[]
+        public items?: ItemModel[],
+        public heading?: string
     ) {}
 }
 

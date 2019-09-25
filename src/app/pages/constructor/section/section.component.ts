@@ -1,4 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 import { SectionModel } from "../../../shared/models";
 
 @Component({
