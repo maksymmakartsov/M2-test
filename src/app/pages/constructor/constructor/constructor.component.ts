@@ -18,7 +18,7 @@ export class ConstructorComponent implements OnInit, AfterViewInit {
   @ViewChild('drawer', {static: false}) public sidebar: MatSidenav;
 
   constructor(
-      private readonly itemsSettingsService: ItemsSettingsService
+      public readonly itemsSettingsService: ItemsSettingsService
   ) { }
 
   ngOnInit() {

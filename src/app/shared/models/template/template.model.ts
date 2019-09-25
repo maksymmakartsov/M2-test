@@ -22,7 +22,7 @@ export class ParagraphModel {
     constructor(
         public id: number,
         public position: number,
-        public parent?: ParagraphModel,
+        public children?: ParagraphModel[],
         public items?: ItemModel[],
         public heading?: string
     ) {}

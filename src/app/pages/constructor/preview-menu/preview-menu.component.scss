@@ -38,19 +38,33 @@
     }
   }
   &__paragraph {
-    margin-bottom: 14px;
-
     &__title {
       color: #616e8f;
       font-size: 14px;
       line-height: 20px;
+      text-decoration: none;
     }
-    &:hover {
-      background-color: #80a3e2;
-      cursor: pointer;
+    &__children {
+      margin-left: 15px;
+    }
+    &__item {
+      margin-bottom: 14px;
 
-      .preview__paragraph__title {
-        color: #fff;
+      &:hover {
+        background-color: #80a3e2;
+        cursor: pointer;
+
+        .preview__paragraph__title {
+          color: #fff;
+        }
+      }
+      &:focus {
+        background-color: #80a3e2;
+        cursor: pointer;
+
+        .preview__paragraph__title {
+          color: #fff;
+        }
       }
     }
   }

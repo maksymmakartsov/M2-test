@@ -13,11 +13,22 @@ import { MatButtonModule, MatSelectModule, MatSidenavModule } from '@angular/mat
 import { ItemComponent } from './item/item.component';
 import { ItemsSettingsService } from "../../shared/services/items-settings/items-settings.service";
 import { PreviewMenuComponent } from './preview-menu/preview-menu.component';
+import { DragDropModule } from "@angular/cdk/drag-drop";
+import { InformationComponent } from "./items/information/information.component";
 
 
 
 @NgModule({
-  declarations: [ConstructorComponent, SectionComponent, ParagraphComponent, CreateTemplateComponent, EditTemplateComponent, ItemComponent, PreviewMenuComponent],
+  declarations: [
+      ConstructorComponent,
+      SectionComponent,
+      ParagraphComponent,
+      CreateTemplateComponent,
+      EditTemplateComponent,
+      ItemComponent,
+      PreviewMenuComponent,
+      InformationComponent
+  ],
     imports: [
         CommonModule,
         ConstructorRoutingModule,
@@ -25,7 +36,8 @@ import { PreviewMenuComponent } from './preview-menu/preview-menu.component';
         MatSelectModule,
         MatInputModule,
         MatButtonModule,
-        MatSidenavModule
+        MatSidenavModule,
+        DragDropModule
     ],
   providers: [
       ConstructorService,

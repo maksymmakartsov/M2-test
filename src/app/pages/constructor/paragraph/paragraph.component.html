@@ -8,7 +8,7 @@
 		<div class="paragraph__main-wrapper">
 			<div class="heading">
 				<mat-form-field>
-					<input matInput placeholder="Paragraph heading">
+					<input matInput placeholder="Paragraph heading" [value]="paragraphData.heading">
 				</mat-form-field>
 			</div>
 			<div class="items">
@@ -24,4 +24,7 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div class="paragraph__children">
+	<ng-content></ng-content>
 </div>

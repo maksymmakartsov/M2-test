@@ -5,9 +5,16 @@
 	</div>
 	<div class="section__paragraphs-container">
 		<ng-container *ngFor="let paragraph of sectionData.paragraphs">
-			<app-paragraph
-					[paragraphData]="paragraph"
-			></app-paragraph>
+			<app-paragraph [paragraphData]="paragraph">
+				<ng-container *ngTemplateOutlet="paragraphTemplate; context: { items: paragraph.children }"></ng-container>
+			</app-paragraph>
 		</ng-container>
 	</div>
 </div>
+<ng-template #paragraphTemplate let-items="items">
+	<ng-container *ngIf="items && items.length">
+		<app-paragraph  *ngFor="let item of items" [paragraphData]="item">
+			<ng-container *ngTemplateOutlet="paragraphTemplate; context: { items: item.children }"></ng-container>
+		</app-paragraph>
+	</ng-container>
+</ng-template>
