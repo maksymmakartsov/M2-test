@@ -10,14 +10,16 @@
 					class="preview__section"
 			>
 				<p class="preview__section__title">{{ section?.name }}</p>
-				<div *ngFor="let paragraph of section?.paragraphs" class="preview__paragraph">
-					<div cdkDropList class="preview__paragraph__item">
-						<div cdkDrag class="">
-							<a routerLink="./" fragment="{{ paragraph?.id }}" class="preview__paragraph__title">{{ paragraph?.heading }}</a>
+				<div cdkDropList class="preview__paragraph__list">
+					<div cdkDragBoundary=".preview__paragraph__list" cdkDrag *ngFor="let paragraph of section?.paragraphs" class="preview__paragraph">
+						<div class="preview__paragraph__item">
+							<div class="">
+								<a routerLink="./" fragment="{{ paragraph?.id }}" class="preview__paragraph__title">{{ paragraph?.heading }}</a>
+							</div>
 						</div>
-					</div>
-					<div class="preview__paragraph__children">
-						<ng-container *ngTemplateOutlet="paragraphPreviewTemplate; context: { items: paragraph.children }"></ng-container>
+						<div cdkDropList class="preview__paragraph__children">
+							<ng-container *ngTemplateOutlet="paragraphPreviewTemplate; context: { items: paragraph.children }"></ng-container>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -26,13 +28,13 @@
 </div>
 <ng-template #paragraphPreviewTemplate let-items="items">
 	<ng-container *ngIf="items && items.length">
-		<div *ngFor="let item of items" class="preview__paragraph">
-			<div cdkDropList class="preview__paragraph__item">
-				<div cdkDrag class="">
+		<div cdkDragBoundary=".preview__paragraph__children" cdkDrag *ngFor="let item of items" class="preview__paragraph">
+			<div class="preview__paragraph__item">
+				<div class="">
 					<a routerLink="./" fragment="{{ item?.id }}" class="preview__paragraph__title">{{ item?.heading }}</a>
 				</div>
 			</div>
-			<div class="preview__paragraph__children">
+			<div cdkDropList class="preview__paragraph__children">
 				<ng-container *ngTemplateOutlet="paragraphPreviewTemplate; context: { items: item.children }"></ng-container>
 			</div>
 		</div>
