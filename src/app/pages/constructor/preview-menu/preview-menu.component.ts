@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TemplateDto } from "../../../shared/models";
+import { ParagraphModel, SectionModel, TemplateDto } from "../../../shared/models";
+import { CdkDragDrop } from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-preview-menu',
@@ -13,6 +14,14 @@ export class PreviewMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public dropParagraph(event: CdkDragDrop<ParagraphModel[]>): void {
+    console.log(event);
+  }
+
+  public dropSection(event: CdkDragDrop<SectionModel[]>): void {
+    console.log(event);
   }
 
 }

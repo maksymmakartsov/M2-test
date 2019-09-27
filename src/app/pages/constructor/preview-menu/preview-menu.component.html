@@ -3,22 +3,29 @@
 		<div class="preview__template__title">
 			<p>{{ template?.name }}</p>
 		</div>
-		<div cdkDropList>
+		<div (cdkDropListDropped)="dropSection($event)" cdkDropList [cdkDropListData]="template?.sections">
 			<div
 					cdkDrag
+					[cdkDragData]="section"
 					*ngFor="let section of template?.sections"
 					class="preview__section"
 			>
 				<p class="preview__section__title">{{ section?.name }}</p>
-				<div cdkDropList class="preview__paragraph__list">
-					<div cdkDragBoundary=".preview__paragraph__list" cdkDrag *ngFor="let paragraph of section?.paragraphs" class="preview__paragraph">
+				<div cdkDropList (cdkDropListDropped)="dropParagraph($event)" [cdkDropListData]="section?.paragraphs" class="preview__paragraph__list">
+					<div
+							cdkDragBoundary=".preview__paragraph__list"
+							cdkDrag
+							[cdkDragData]="paragraph"
+							*ngFor="let paragraph of section?.paragraphs"
+							class="preview__paragraph"
+					>
 						<div class="preview__paragraph__item">
 							<div class="">
 								<a routerLink="./" fragment="{{ paragraph?.id }}" class="preview__paragraph__title">{{ paragraph?.heading }}</a>
 							</div>
 						</div>
-						<div cdkDropList class="preview__paragraph__children">
-							<ng-container *ngTemplateOutlet="paragraphPreviewTemplate; context: { items: paragraph.children }"></ng-container>
+						<div class="preview__paragraph__children">
+							<ng-container *ngTemplateOutlet="paragraphPreviewTemplate; context: { items: paragraph?.children }"></ng-container>
 						</div>
 					</div>
 				</div>
@@ -28,14 +35,22 @@
 </div>
 <ng-template #paragraphPreviewTemplate let-items="items">
 	<ng-container *ngIf="items && items.length">
-		<div cdkDragBoundary=".preview__paragraph__children" cdkDrag *ngFor="let item of items" class="preview__paragraph">
-			<div class="preview__paragraph__item">
-				<div class="">
-					<a routerLink="./" fragment="{{ item?.id }}" class="preview__paragraph__title">{{ item?.heading }}</a>
+		<div cdkDropList (cdkDropListDropped)="dropParagraph($event)" [cdkDropListData]="items" class="preview__paragraph__children-item">
+			<div
+					cdkDragBoundary=".preview__paragraph__children-item"
+					cdkDrag
+					[cdkDragData]="item"
+					*ngFor="let item of items"
+					class="preview__paragraph"
+			>
+				<div class="preview__paragraph__item">
+					<div class="">
+						<a routerLink="./" fragment="{{ item?.id }}" class="preview__paragraph__title">{{ item?.heading }}</a>
+					</div>
 				</div>
-			</div>
-			<div cdkDropList class="preview__paragraph__children">
-				<ng-container *ngTemplateOutlet="paragraphPreviewTemplate; context: { items: item.children }"></ng-container>
+				<div class="preview__paragraph__children">
+					<ng-container *ngTemplateOutlet="paragraphPreviewTemplate; context: { items: item?.children }"></ng-container>
+				</div>
 			</div>
 		</div>
 	</ng-container>

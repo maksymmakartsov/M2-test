@@ -13,7 +13,7 @@ export class ItemsSettingsService {
   public get getItem(): any {
     return this.item$;
   }
-  public set item(item: ItemModel | null) {
+  private set item(item: ItemModel | null) {
     this.item$.next(item);
   }
 
