@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search/search.component';
 import { TemplatesBlockComponent } from './templates-block/templates-block.component';
-import { TemplatesComponent } from './templates/templates.component';
+import { TemplatesComponent } from './templates-page/templates.component';
 import { TemplateCardComponent } from './template-card/template-card.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";

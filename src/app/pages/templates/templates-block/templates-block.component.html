@@ -1,26 +1,13 @@
 <div class="templates-block-wrap">
 	<div class="templates-block-content">
-		<h1>Draft templates</h1>
-		<ng-container *ngFor="let template of draftTemplates$ | async">
+		<h1>{{ templateType === 'draft' ? 'Draft' : 'Published' }} templates</h1>
+		<ng-container *ngFor="let template of templatesList">
 			<app-template-card
 					[template]="template"
-					[type]="'draft'"
+					[type]="templateType"
 					(click)="navigateToEditTemplate(template.id)"
 			></app-template-card>
 		</ng-container>
-		<h1>Published templates</h1>
-		<ng-container *ngFor="let template of filteredPublishedTemplates$ | async">
-			<app-template-card
-					[template]="template"
-					[type]="'published'"
-			></app-template-card>
-		</ng-container>
-		<mat-paginator [length]="(publishedTemplates$ | async).length"
-		               [pageSize]="2"
-		               hidePageSize="true"
-		               showFirstLastButtons="true"
-		               (page)="changePagination($event)"
-		>
-		</mat-paginator>
+		<ng-content></ng-content>
 	</div>
 </div>

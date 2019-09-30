@@ -1,0 +1,18 @@
+<div class="templates-wrap">
+	<app-search
+			(searchEvent)="onSearch()"
+	></app-search>
+	<app-templates-block
+			[templatesList]="draftTemplates$ | async"
+			[templateType]="'draft'"
+			(editTemplate)="onEditTemplate($event)"
+	></app-templates-block>
+	<app-templates-block [templatesList]="filteredPublishedTemplates$ | async" [templateType]="'published'">
+		<mat-paginator [length]="(publishedTemplates$ | async).length"
+		               [pageSize]="2"
+		               hidePageSize="true"
+		               showFirstLastButtons="true"
+		               (page)="changePagination($event)"
+		></mat-paginator>
+	</app-templates-block>
+</div>
