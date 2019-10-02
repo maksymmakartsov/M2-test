@@ -2,7 +2,10 @@ import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/cor
 import { ItemModel, TemplateDto } from '../../../shared/models';
 import { MatSidenav } from "@angular/material";
 import { ItemsSettingsService } from "../../../shared/services/items-settings/items-settings.service";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
+import { ActivatedRoute, Router } from "@angular/router";
+import { map, switchMap, tap } from "rxjs/operators";
+import { ConstructorService } from "../../../shared/services/constructor/constructor.service";
 
 @Component({
   selector: 'app-constructor',
@@ -13,16 +16,31 @@ export class ConstructorComponent implements OnInit, AfterViewInit {
 
   public item$: Observable<ItemModel> = this.itemsSettingsService.getItem;
 
-  @Input() public template: TemplateDto;
+  @Input() public template$: Observable<TemplateDto>;
 
   @ViewChild('drawer', {static: false}) public sidebar: MatSidenav;
 
   constructor(
-      public readonly itemsSettingsService: ItemsSettingsService
+      private readonly itemsSettingsService: ItemsSettingsService,
+      private readonly activeRoute: ActivatedRoute,
+      private readonly router: Router,
+      private readonly constructorService: ConstructorService
   ) { }
 
   ngOnInit() {
-    console.log(this.template);
+    this.template$ = this.activeRoute.paramMap.pipe(
+        switchMap(params => {
+          const param = params.get('id');
+          if (param === 'new') {
+            return of(null);
+          }
+          if (!isNaN(+param)) {
+            return this.constructorService.getTemplate(+param)
+          }
+          this.router.navigate(['/']);
+          return of(null);
+        })
+    );
   }
 
   ngAfterViewInit(): void {

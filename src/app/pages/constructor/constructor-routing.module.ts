@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateTemplateComponent } from './create-template/create-template.component';
-import { EditTemplateComponent } from './edit-template/edit-template.component';
+import { ConstructorComponent } from "./constructor/constructor.component";
 
 
 const routes: Routes = [
-    {
-        path: '',
-        component: CreateTemplateComponent
-    },
+    // {
+    //     path: 'new',
+    //     component: ConstructorComponent
+    // },
     {
         path: ':id',
-        component: EditTemplateComponent
+        component: ConstructorComponent
     }
 ];
 

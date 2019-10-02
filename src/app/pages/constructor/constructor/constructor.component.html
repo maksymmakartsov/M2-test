@@ -12,11 +12,11 @@
     <div class="template-constructor-wrap">
       <div class="template-constructor">
         <div
-            *ngIf="template"
+            *ngIf="(template$ | async)"
             class="template-constructor__information">
           <mat-form-field>
             <mat-select placeholder="Template service">
-              <mat-option value="option">{{ template.service }}</mat-option>
+              <mat-option value="option">{{ (template$ | async)?.service }}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field>
@@ -24,11 +24,11 @@
           </mat-form-field>
           <div class="template-constructor__description">
             <p class="template-constructor__description__label">Description:</p>
-            <p class="template-constructor__description__text">{{ template.description }}</p>
+            <p class="template-constructor__description__text">{{ (template$ | async)?.description }}</p>
           </div>
         </div>
         <div class="template-constructor__content">
-          <ng-container *ngFor="let section of template.sections">
+          <ng-container *ngFor="let section of (template$ | async)?.sections">
             <app-section
                 [sectionData]="section"
             ></app-section>
@@ -42,5 +42,5 @@
   </mat-drawer-content>
 </mat-drawer-container>
 <app-preview-menu
-    [template]="template"
+    [template]="(template$ | async)"
 ></app-preview-menu>

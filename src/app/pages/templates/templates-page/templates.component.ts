@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { TemplateCardDto } from "../../../shared/models";
 import { TemplatesListService } from "../../../shared/services/templates-list/templates-list.service";
-import { FILTERED_DRAFT_TEMPLATES_MOCK, FILTERED_PUBLISHED_TEMPLATES_MOCK } from "../../../mock";
-import { Observable, of } from "rxjs";
+import { combineLatest, Observable, of, Subject } from "rxjs";
 import { MatPaginator, PageEvent } from "@angular/material";
-import { startWith, switchMap } from "rxjs/operators";
+import { map, startWith, switchMap } from "rxjs/operators";
 import { Router } from "@angular/router";
+import { FILTERED_PUBLISHED_TEMPLATES_MOCK } from "../../../mock";
 
 @Component({
   selector: 'app-templates',
@@ -18,6 +18,8 @@ export class TemplatesComponent implements OnInit, AfterViewInit {
   public publishedTemplates$: Observable<TemplateCardDto[]>;
   public filteredPublishedTemplates$: Observable<TemplateCardDto[]>;
 
+  public filter$: Subject<string> = new Subject<string>();
+
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   constructor(
@@ -26,15 +28,26 @@ export class TemplatesComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    this.draftTemplates$ = this.templatesListService.getDraftTemplates();
+    this.draftTemplates$ = this.filter$.pipe(
+      startWith(''),
+      switchMap((params) => this.templatesListService.getDraftTemplates(params))
+    );
     this.publishedTemplates$ = this.templatesListService.getPublishedTemplates();
   }
 
   ngAfterViewInit() {
     const page: PageEvent = {previousPageIndex: 0, pageIndex: 0, pageSize: 2, length: 0};
-    this.filteredPublishedTemplates$ = this.paginator.page.pipe(
-        startWith(page),
-        switchMap((params) => this.templatesListService.getPublishedTemplatesForPagination(params))
+    this.filteredPublishedTemplates$ = combineLatest(
+        this.paginator.page.pipe(startWith(page)),
+        this.filter$.pipe(startWith(''))
+    ).pipe(
+        map(([paginator, filter]: [PageEvent, string]) => {
+          return {
+            paginator: paginator,
+            filter: filter
+          }
+        }),
+        switchMap((params) => this.templatesListService.getPublishedTemplatesForPagination(params)),
     );
   }
 
@@ -42,13 +55,9 @@ export class TemplatesComponent implements OnInit, AfterViewInit {
     this.router.navigate(['constructor', `${id}`]);
   }
 
-  changePagination(event: PageEvent) {
-    this.filteredPublishedTemplates$ = this.templatesListService.getPublishedTemplatesForPagination(event);
-  }
-
   public onSearch(): void {
-    this.draftTemplates$ = of(FILTERED_DRAFT_TEMPLATES_MOCK);
     this.publishedTemplates$ = of(FILTERED_PUBLISHED_TEMPLATES_MOCK);
+    this.filter$.next('1');
   }
 
 }

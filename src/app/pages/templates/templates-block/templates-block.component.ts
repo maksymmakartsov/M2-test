@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TemplateCardDto } from "../../../shared/models";
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-templates-block',
