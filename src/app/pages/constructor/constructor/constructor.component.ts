@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ItemModel, TemplateDto } from '../../../shared/models';
 import { MatSidenav } from "@angular/material";
 import { ItemsSettingsService } from "../../../shared/services/items-settings/items-settings.service";
 import { Observable, of } from "rxjs";
 import { ActivatedRoute, Router } from "@angular/router";
-import { map, switchMap, tap } from "rxjs/operators";
+import { switchMap } from "rxjs/operators";
 import { ConstructorService } from "../../../shared/services/constructor/constructor.service";
 
 @Component({
@@ -15,8 +15,7 @@ import { ConstructorService } from "../../../shared/services/constructor/constru
 export class ConstructorComponent implements OnInit, AfterViewInit {
 
   public item$: Observable<ItemModel> = this.itemsSettingsService.getItem;
-
-  @Input() public template$: Observable<TemplateDto>;
+  public template$: Observable<TemplateDto>;
 
   @ViewChild('drawer', {static: false}) public sidebar: MatSidenav;
 

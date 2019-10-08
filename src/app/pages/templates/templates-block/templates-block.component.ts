@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TemplateCardDto } from "../../../shared/models";
 
 @Component({
   selector: 'app-templates-block',
   templateUrl: './templates-block.component.html',
-  styleUrls: ['./templates-block.component.scss']
+  styleUrls: ['./templates-block.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TemplatesBlockComponent implements OnInit {
   @Input() public templatesList: TemplateCardDto[];

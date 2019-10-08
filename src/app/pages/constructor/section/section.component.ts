@@ -1,14 +1,11 @@
-import {
-  Component,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { SectionModel } from "../../../shared/models";
 
 @Component({
   selector: 'app-section',
   templateUrl: './section.component.html',
-  styleUrls: ['./section.component.scss']
+  styleUrls: ['./section.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SectionComponent implements OnInit {
 
@@ -17,7 +14,6 @@ export class SectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.sectionData);
   }
 
 }
